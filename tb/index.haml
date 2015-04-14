@@ -38,6 +38,7 @@
     font-size: 80px
     text-transform: uppercase
     margin-top: -20px
+    margin-bottom: 32px
   .howToPlay
     font-family: 'Open Sans', sans-serif
     font-size: 40px
@@ -68,6 +69,29 @@
     color: #ddd
   video
     margin-bottom: 32px
+
+  #header
+    
+    #hero
+      width: 102%
+      min-width: 1024px
+      margin-left: -1%
+      position: absolute
+      z-index: -1
+      top: 0
+      left: 0
+    .like
+      font-family: 'Open Sans', sans-serif
+      font-size: 20px
+      text-transform: uppercase
+      .name
+        margin-bottom: -4px
+        margin-top: -6px
+        font-size: 32px
+        a
+          color: #FF3636
+      
+
   #introContainer
     height: 252px
   #profilePic
@@ -289,16 +313,20 @@
         blog
 #content
   #guide
-    .howToPlay 
-      How To Play 
-    %h1 Terrorblade
-    .like
-      Like 
-      %a{:href=>"http://www.dotabuff.com/players/135732897"}
-        DTH.RampageJohnson
-      .dotabuffRank
-        \#49 Terrorblade in the world
-    %img#profilePic{:src => "paProfile.jpg", :width => "356px", :height => "252px"}
+    #header
+      %video#hero{:loop => "true", :autoplay => "true"}
+        %source{:src => "tb_hero.mp4", :type => "video/mp4"}
+      .howToPlay 
+        How To Play 
+      %h1 Terrorblade
+      .like
+        Like 
+        .name
+          %a{:href=>"http://www.dotabuff.com/players/135732897"}
+            DTH.RampageJohnson
+        .dotabuffRank
+          \#49 Terrorblade in the world
+
     #introContainer
       #intro
         %p
