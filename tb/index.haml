@@ -72,14 +72,16 @@
 
   #header
     
-    #hero
+    #hero, #hero_bg
       width: 102%
       min-width: 1024px
       margin-left: -1%
       position: absolute
-      z-index: -1
+      z-index: -2
       top: 0
       left: 0
+    #hero_bg
+      z-index: -1
     .like
       font-family: 'Open Sans', sans-serif
       font-size: 20px
@@ -92,19 +94,18 @@
           color: #FF3636
       
 
-  #introContainer
-    height: 252px
   #profilePic
     float: left
   #quizContainer
     min-width: 1024px
-    height: 616px
+    height: 540px
+    margin-bottom: -80px
   #quiz
     box-sizing: border-box
     background-image: url(itemBg.jpg)
     width: 1024px
-    height: 594px
-    padding-top: 180px
+    height: 460px
+    padding-top: 70px
   #results
     display: none
     height: 516px
@@ -114,11 +115,8 @@
       background-color: #aaa
       height: 1px
   #intro
-    width: 628
-    float: left
-    margin-left: 40px
-    p:first-child
-      margin-top: 0px
+    margin-top: 40px
+    width: 500px
   #itemBuild
     width: 1024px
     h2
@@ -202,6 +200,11 @@
       .one
         background-color: rgba(250,250,250,1)
   #build
+    .ministep
+      padding: 10px
+      background-image: url('item_guide_spacer2.png')
+      background-position: center center
+      background-repeat: no-repeat
     .step
       width: 200px
       font-size: 10px
@@ -217,24 +220,36 @@
         margin-right: auto
         background-color: #666
         background-repeat: no-repeat
+        //box-shadow: inset 0 0 12px 0 rgba(7,7,6,1)
         width: 85px
         height: 64px
+        background-image: url(gray_bg_items.png)
       .orSpacer
         text-align: center
       .description
         display: none
       .tango
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/tango_lg.png)
+        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/tango_lg.png)
+        background-position: 0 -64px * 5
       .clarity
         background-image: url(http://cdn.dota2.com/apps/dota2/images/items/clarity_lg.png)
       .gg
         background-image: url(http://cdn.dota2.com/apps/dota2/images/items/branches_lg.png)
       .circlet
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/circlet_lg.png)
+        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/circlet_lg.png)
+        background-position: 0 -64px * 7
       .quelling
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/quelling_blade_lg.png)
+        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/quelling_blade_lg.png)
+        background-position: 0 -64px * 2
       .salve
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/flask_lg.png)
+        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/flask_lg.png)
+        background-position: 0 -64px * 6
+      .wraithBand
+        background-position: 0 -64px * 8
+      .aquila
+        background-position: 0 -64px * 9
+      .diffusal
+        background-position: 0 -64px * 11
       .ringOfProtection
         background-image: url(http://cdn.dota2.com/apps/dota2/images/items/ring_of_protection_lg.png)
       .ringOfBasilus
@@ -262,9 +277,12 @@
       .basher
         background-image: url(http://cdn.dota2.com/apps/dota2/images/items/basher_lg.png)
       .yasha
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/yasha_lg.png)
+        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/yasha_lg.png)
+      .sAndY
+        background-position: 0 -64px
       .butterfly
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/butterfly_lg.png)
+        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/butterfly_lg.png)
+        background-position: 0 -64px * 4
       .satanic
         background-image: url(http://cdn.dota2.com/apps/dota2/images/items/satanic_lg.png)
       .mjollnir
@@ -272,13 +290,17 @@
       .abyssal
         background-image: url(http://cdn.dota2.com/apps/dota2/images/items/abyssal_blade_lg.png)
       .manta
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/manta_lg.png)
+        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/manta_lg.png)
+        background-position: 0 -64px * 12
       .skadi
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/skadi_lg.png)
+        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/skadi_lg.png)
+        background-position: 0 -64px * 3
       .divine
         background-image: url(http://cdn.dota2.com/apps/dota2/images/items/rapier_lg.png)
       .tpboots
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/travel_boots_lg.png)
+        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/travel_boots_lg.png)
+        background-position: 0 -64px * 10
+        
   #skillBuild
     .build
       margin-top: 40px
@@ -316,6 +338,7 @@
     #header
       %video#hero{:loop => "true", :autoplay => "true"}
         %source{:src => "tb_hero.mp4", :type => "video/mp4"}
+      %img#hero_bg{:src=>"hero_bg.png"}
       .howToPlay 
         How To Play 
       %h1 Terrorblade
@@ -330,7 +353,7 @@
     #introContainer
       #intro
         %p
-          Terrorblade Intro
+          lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nunc quis diam sodales viverra sed a arcu. Aliquam elementum, neque in viverra fringilla, risus odio tempus ligula, eu aliquet nibh ante id urna. Suspendisse sed tortor eu felis aliquet placerat. Nullam vel justo nec lacus ornare imperdiet et at lorem. Sed ut faucibus nisi. Cras gravida egestas mauris a cursus. Sed in suscipit est, at varius enim. 
 
     #itemBuild
       %h2 Item build
@@ -345,86 +368,27 @@
         #results
           %table
             %tr#build
-            %tr#lineSpacerBecauseImBadAtHTMLConventionsAndItsLateAndIWantToSleep
-              %td{:colspan => 322, :style => "padding: 0px;"}
             %tr{:style => "border-top: 1px solid #fff;"}
               %td#description{:colspan => 322}
 
 
     #position2
-      %h2 Midlane/Offlane Position 2/3
+      %h2 Jungle
       %p
         Use your dagger to farm. Stay away from the wave unless you know its absolutely safe. By only using dagger, you should be able to get 3 out of the 4 creeps in the wave. As an offlane or mid, that's plenty. Use your mana pot once you hit ~75 mana or so. The extra boost in mana should be enough until you get another item to help you sustain your dagger spam (medallion/RoB). If you're mid, gank once you're 6 or if you have an opportunistic rune. If you're offlane, keep a tp scroll ready and watch the other lanes. Dagger can be lethal to someone diving a tower. Once you have medallion, leave your lane for good and start the gank train.
       %h3 Dagger can let you farm in even the most dangerous of lanes
       %video{:loop => "true", :autoplay => "true"}
-        %source{:src => "daggerFarming.mp4", :type => "video/mp4"}
+        %source{:src => "death_heal.mp4", :type => "video/mp4"}
+      %video{:loop => "true", :autoplay => "true"}
+        %source{:src => "dire_jungle_1.mp4", :type => "video/mp4"}
+      %video{:loop => "true", :autoplay => "true"}
+        %source{:src => "dire_jungle_2.mp4", :type => "video/mp4"}
+      %video{:loop => "true", :autoplay => "true"}
+        %source{:src => "radiant_jungle_1.mp4", :type => "video/mp4"}
       %p
         Work towards your early game items as suggested in the build. Your objective as a 2 or a 3 is to create chaos so your position 1 can farm. Rotate often - with blur they wont see your rotations on the minimap. If you're ganking everywhere, they'll devote more resources to trying to find you and less resources to trying to shut down your carry. Keep them worried, eat their supports. Get in, crit, then get out and run to another lane. With PA it's all about cardio.
       %p
         If you're building deso, as soon as you have that and vlads go rosh. Dont worry about smoking in, just walk right into the rosh pit. Remember you wont show up on the minimap with blur. As long as your blur status doesnt disappear when you walk in, you didnt show up on the minimap. With deso/medallion/vlads, you can take rosh in about 30-40 seconds. Use your dagger to break his spell shield then blink onto him once it's broken. Keep spamming medallion and blink strike. 
-    #position1
-      %h2 Safelane Position 1
-      %p
-        If a positon 2 PA's job is to create chaos, a position 1 PA's job is to survive the chaos. Don't take too many risks, blink into battle to clean up. Be careful wasting your bkb charges - remember you're building for end game here, only blow your bkb if you know it's going to be worth it. You can consider going battlefury in the 1 position, but I like going maelstrom if I need something to help farm early. Late game if you're going satanic/skadi, combined with blur you're going to be tanky as all hell. If you toss mjollnir's static charge on yourself, it's going to be very difficult to bring you down. 
-    #blur
-      %h2 Blur
-      %p 
-        Blur is PA's passive. Most people only use the evasion portion of the ability. The good players take advantage of the fact that it also acts as a radar - alerting you any time an enemy (even invisible ones) are within 1600 units of you. Keep a sharp eye on that icon. If it disappears, you might be getting smoke ganked or there might be an invisible unit nearby. This ability is particularly good against stealth units. When you see it go down, toss out some dust and attack them before they jump on you. 
-      %h3 Detecting Invisible Units With Blur
-      %video{:loop => "true", :autoplay => "true"}
-        %source{:src => "blur.mp4", :type => "video/mp4"}
-      %p
-        Scouting rosh with blur is also quite easy regardless of which side you're on. Standing in these positions will reveal wheither or not anyone is currently in the rosh pit without putting you in harms way. The green circle represents blur's distance (1600 units).
-      %h3 Scouting Roshan From Radiant
-      %img{:src => "blurRosh1.jpg", :width => "1024px", :height => "640px", :style => "margin-bottom: 20px;"}
-      %img{:src => "blurRosh2.jpg", :width => "1024px", :height => "640px"}
-      %h3 Scouting Roshan From Dire
-      %img{:src => "blurRosh3.jpg", :width => "1024px", :height => "640px", :style => "margin-bottom: 20px;"}
-      %img{:src => "blurRosh4.jpg", :width => "1024px", :height => "640px"}
-      %p 
-        Also take advantage of the fact that if the icon is being displayed, you aren't being displayed on the minimap. Sneak into places you aren't expected to be to find ganks, push lanes without the enemy realizing you're pushing them. I've gotten plenty of rax because the enemy didnt realize I was pushing their lane down. Supports will often tp to a lane without looking, expecting only to find creeps. Make them pay for their mistake.
-    #prng
-      %h2
-        Priming the prng
-      %p
-        PA is notable for one thing - her crits. They're the most powerful in the game, the largest possible source of single instance damage. The feeling of one-shotting an enemy hero is something that few other abilities can match. However, at a tiny 15%, the chance to proc is pretty low and the odds are stacked against you. Like any good poker player though, we can always improve the odds. Enter PRNG. 
-      %p
-        PRNG stands for Pseudo-Random Number Generation. Essentially it's a method of random number generation that more evenly distributes the chances of success. In the context of dota, it means that there's a far smaller chance of being "streaky" (having a ton of crits in a row, or none at all for a long period of time). If you have the time, take a look at the 
-        %a{:href => "http://dota2.gamepedia.com/Pseudo-random_distribution"}
-          gamepedia wiki entry on PRNG.
-        The basics though work like this: PA's actual chance to crit on her first attack is 3.222% (not 15%). However, each subsequent attack she does after that increases her chance to crit by another 3.222%. So her 2nd attack will have a 6.444% chance to crit, her 3rd attack will have a 9.666% chance to crit, and so on until the crit procs. Once the crit procs, the percent is reset back to 3.222%. This averages out to her critting 15% of the time over many hits, but each individual attack will have a far different chance to crit on its own. 
-      %p
-        The quick ones of you will notice that this system can be gamed. If you count your attacks since your last crit, you can compute the probability of a crit on your next attack. The returns aren't that great though - a 3% increase each attack isnt much. Luckily for us, PA doesn't just attack an enemy once then run away. Blink strike gives you an attack speed buff for the next four attacks, so the actual question we should be asking isn't 
-      .quote
-        "What's the probability of me critting on my next attack?" 
-      %p
-        Instead, it should be:
-      .quote
-        "What's the probability of me critting <strong>in the next four attacks</strong>?"
-      %p
-        A single 3% increase across four attacks compounds the chance. Four 3% increases compounds the pain even more. Here're the raw numbers showing what the percent to crit is after a certain amount of attacks without critting. 
-      %canvas#prngGraph{:width => "1024px", :height => "400px"}
-      #canvasLabel
-        Number of hits without critting
-        #colorLabels
-          .label
-            .one
-            Chance your next attack will hit
-          
-          .label
-            .four
-            Chance one of your next four attacks will hit
-      %p
-        The takeaway here? You can, and should, be priming your crit before you jump on a hero. If you hit a creep just four times (without critting) before you blink strike a hero, your chance of landing a crit jumps to over 50%. Priming the prng with seven attacks gives you an almost 75% chance to crit. Here's a video of this concept in action - we'll count the number of times we get a crit in the next four attacks after hitting sven seven times first. 
-
-      //VIDEO
-      %h3
-        The Probability of Critting After 7 Primed Attacks
-      %video{:loop => "true", :autoplay => "true"}
-        %source{:src => "prngPriming.mp4", :type => "video/mp4"}
-
-      %p
-        Fourteen out of the sixteen, or 88%. A bit more than the predicted 75%, but still we can see the power in priming your prng. If you're unsure whether or not you should jump in on a gank, consider the number of attacks you've primed. If there's a bunch in the queue, you have a higher chance of getting a crit off in the gank and making it out with a kill.
 
     #skillBuild
       %h2
@@ -528,7 +492,7 @@
           if(j + 1 < decisionTree.build[i][0].length){
             var spacer = document.createElement('div');
             spacer.className = "orSpacer";
-            spacer.innerHTML = i == 0 ? "AND" : "OR";
+            spacer.innerHTML = i < 2 ? "AND" : "OR";
             step.appendChild(spacer);
           }
         }
@@ -546,7 +510,7 @@
         var step = document.createElement('td');
         if(i != decisionTree.build.length - 1){
           step.className = "ministep";
-          step.innerHTML = "&#9654;";
+          step.innerHTML = "&nbsp;";
           dom.appendChild(step);
         }
       }
@@ -563,90 +527,23 @@
 
       if(decisionVariables.buildTips.lane == "jungle"){
         build.push([["circlet", "circlet", "quelling"], "You'll be building out the circlets into wraith bands, and the quelling is necessary to help you cut trees for both cliff jungling and choke-point jungling. Don't worry about healing items - we'll be using death-heals instead as it's faster and more cost effective."]);
+        build.push([["wraithBand", "aquila"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
+        build.push([["tpboots"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
+        build.push([["sAndY"], ""]);
+        build.push([["skadi"], ""])
+        build.push([["butterfly"], ""])
+        build.push([["butterfly", "diffusal"], ""])
       }
       else {
         build.push([["tango", "salve", "circlet", "circlet"], "TB's starting health is one of the worst in the game. He's highly succeptable to magic harass early game - make sure you have enough healing to survive the early assault."]);
+        build.push([["wraithBand", "aquila"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
+        build.push([["tpboots"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
+        build.push([["sAndY"], ""]);
+        build.push([["skadi"], ""])
+        build.push([["butterfly"], ""])
+        build.push([["butterfly", "diffusal"], ""])
       }
 
-      //boots
-      if(decisionVariables.buildTips.enemyDamageType == "magical"){
-        build.push([["powerTreads"], "If the enemy has a lot of burst magic damage, power treads will provide you with some extra HP, and the increased attack speed is welcomed too."]);
-      }
-      else {
-        build.push([["phaseBoots"], "If the enemy doesn't have a lot of burst magic damage, then phase is a great choice. Your overall DPS in the end game will be greater with power treads, but early game phase will give you higher crits (which when combined with prng priming you'll be more likely to get crits in your first attacks, making the lack of attack speed increase less of a detriment). The biggest reason I usually go phase though is the mobility. With PA you're going to want to be in and out of battle as fast as possible. Dont give the enemy time to target you. Hit and run."]);
-      }
-
-      //medallion
-      build.push([["medallion"], "My overall favorite item on PA. Goes through magic immunity. 0 mana cost. Removes more armor than a deso. Makes PA viable early game. Combine it with deso to get one hit kills before 20 minutes. This is the only item I recommend every game with PA. Spam the hell out of it. Jungling? Use it. Need to push a lane? Use it on creeps. The only time it shouldn't be off cooldown is if you're running away from a fight and you need the extra armor."]);
-
-
-      var halfDPSItem = false;
-      var satanic = false;
-      var earlybkb = decisionVariables.buildTips.enemyLockdown && !decisionVariables.buildTips.omniRepel;
-      //deso versus satanic
-      if(decisionVariables.buildTips.farmPriority != 1){
-        //vlads
-        if(decisionVariables.buildTips.vladsCarrier == false){
-          build.push([["vlads"], "Vlads is a great all around item for PA. Provides lifesteal, doesnt take an orb, gives mana regen, gives some armor. Unless you're playing a 1 (in which case you'll probably go satanic) or someone else on the team will get one, you should almost always get it."]);
-        }
-        if(earlybkb){
-          build.push([["bkb"], "Deso is more fun, but if the enemy has lockdown you really need to get your BKB online first."]);
-        }
-        build.push([["deso"], "Deso is an amazingly cost effective damage item if you can afford to give up the orb slot. Unless you're a position 1 (in which case satanic is probably a better orb), you should almost always go deso. When combined with medallion you can get very early game 1 shot kills. Another great thing is if you have medallion, vlads, and deso, you can solo rosh in about 30 seconds. With blur making you not appear on minimap, you rarely even need smoke - just walk right into the rosh pit and collect your aegis."]);
-      }
-      else {
-        if(decisionVariables.buildTips.playerCanMicro){
-          build.push([["helmOfDom"], "Dom those creeps. Stack often."]);
-        }
-        else {
-          build.push([["morbidMask", "helmOfDom"], "If you can't micro, you may want to consider only picking up the morbid mask component of what eventually will be a satanic, at least for now. For 950 gold you'll get +20 damage, some armor, and some hp regen. That's pretty cost effective, but the real benefit in HotD is the creep you can control. It gives you a creep you can blink to if you need to escape, but if you aren't going to utilize that, your gold is probably better spent on getting your BKB online faster."]);
-        }
-        satanic = true;
-        if(earlybkb){
-          build.push([["bkb"], "A carry can't get safe farm against a team with lockdown unless he has a bkb. Simple as that."]);
-        }
-        if(decisionVariables.buildTips.enemyEvasion){
-          build.push([["mkb"], "The enemy has, or will have evasion, and you need your first big DPS item. Go MKB."]);
-        }
-        else {
-          build.push([["maelstrom", "basher", "yasha"], "You'll want your first big dps item at this point. If you're having trouble chasing people down, yasha or basher are great. If you can afk farm or if the enemy has a ton of armor, mjollnir will be a better choice as it'll let you farm faster, it'll add some magic damage to your attack, and late game with static charge will severely punish anyone who attacks you."]);
-          halfDPSItem = true;
-        }
-      }
-
-      //latebkb... or not?
-      if(!earlybkb){
-        if(decisionVariables.buildTips.enemyDamageType == "physical" && !decisionVariables.buildTips.enemyMKB){
-          if(decisionVariables.buildTips.omniRepel){
-            build.push([["butterfly"], "Very, very rarely would I recommend butterfly. However, if the enemy only has physical damage, probably isn't going to get mkb, and doesn't have any lockdown, it can be not only viable, but hilarious."]);
-          }
-          else { 
-            build.push([["butterfly", "bkb"], "Very, very rarely would I recommend butterfly. However, if the enemy only has physical damage, probably isn't going to get mkb, doesn't have any lockdown, and isn't going to go blademail, it can be not only viable, but hilarious. If any of those conditions are false however, go bkb."]);
-          }
-        } 
-        else{
-          if(!decisionVariables.buildTips.omniRepel){
-            build.push([["bkb"], "You can't deal that sweet DPS if you're on lockdown or dead. Get a bkb, wreck house."]);
-          }
-        }
-      } 
-
-      if(satanic){
-        build.push([["satanic"], "As a position 1, you're going to have more time to get farmed, but it's going to be more important that you stay alive through the duration of the fight. Satanic, especially if activated at the right time, can make PA immensely hard to take down."]);
-      }
-
-      if(halfDPSItem){
-        build.push([["mjollnir", "abyssal", "manta"], "Finish whichever one you started building earlier."]);
-      }
-      else{
-        build.push([["mjollnir", "abyssal", "manta"], "If you're having trouble chasing people down, yasha or basher are great. If the enemy has a ton of armor mjollnir will be a better choice as it'll add some magic damage to your attack, and late game with static charge it will severely punish anyone who attacks you."]);
-      }
-
-      if(satanic){
-        build.push([["skadi"], "Stacks with your satanic. Makes you even harder to take down. Shuts down enemy carries. The extra HP also syncs really well with static charge if you have a mjollnir."]);
-      }
-
-      build.push([["mjollnir", "abyssal", "manta", "divine", "tpboots"], "Divine should only be purchased <del>as a last ditch effort in extreme circumstances</del> WHEN YOU WANT TO BALL OUT OF CONTROL.<span style='background-image: url(images/BONES.png); width: 32px; height: 32px; display: inline-block; position: relative; top: 6px; '></span>"]);
 
       decisionTree.build = build;
       console.log(build);
@@ -704,46 +601,3 @@
   decisionTree.checkLane();
 
 
-  document.addEventListener("DOMContentLoaded", function(event) { 
-    var ctx = document.getElementById("prngGraph").getContext("2d");
-    var labels = [];
-    singleAttack = [];
-    for(var i = 0; i < 31; i++){ 
-      labels.push(i); 
-      singleAttack.push(Math.round((i+1) * 3.222 * 100) / 100);
-    }
-    var multipleAttacks = prngStats.listStats();
-    console.log(multipleAttacks);
-    var data = {
-      labels: labels,
-      datasets: [
-          {
-              label: "Chance a single attack will crit",
-              fillColor: "rgba(255,255,255,0.2)",
-              strokeColor: "rgba(255,255,255,1)",
-              pointColor: "rgba(255,255,255,1)",
-              pointStrokeColor: "#fff",
-              pointHighlightFill: "#fff",
-              pointHighlightStroke: "rgba(220,220,220,1)",
-              data: singleAttack
-          },
-          {
-              label: "Chance one of four attacks will crit",
-              fillColor: "rgba(006,125,236,0.2)",
-              strokeColor: "rgba(006,125,236,1)",
-              pointColor: "rgba(006,125,236,1)",
-              pointStrokeColor: "#fff",
-              pointHighlightFill: "#fff",
-              pointHighlightStroke: "rgba(151,187,205,1)",
-              data: multipleAttacks
-          }
-      ]
-    };
-    var options = {
-      scaleLabel: "<%=value%>%",
-      multiTooltipTemplate: "<%= value %>% chance to crit",
-    };
-    var prngChart = new Chart(ctx).Line(data, options);
-  });
-
-%script{:type => "text/javascript", :src => "Chart.js"}
