@@ -353,7 +353,7 @@
     #introContainer
       #intro
         %p
-          lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nunc quis diam sodales viverra sed a arcu. Aliquam elementum, neque in viverra fringilla, risus odio tempus ligula, eu aliquet nibh ante id urna. Suspendisse sed tortor eu felis aliquet placerat. Nullam vel justo nec lacus ornare imperdiet et at lorem. Sed ut faucibus nisi. Cras gravida egestas mauris a cursus. Sed in suscipit est, at varius enim. 
+          lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nunc quis diam sodales viverra sed a arcu. Aliquam elementum, neque in viverra fringilla, risus odio tempus ligula, eu aliquet nibh ante id urna. Suspendisse sed tortor eu felis aliquet placerat. Nullam vel justo nec lacus ornare imperdiet et at lorem. Sed ut faucibus nisi. Cras gravida egestas mauris a cursus. Sed in suscipit est, at varius enim. aa
 
     #itemBuild
       %h2 Item build
@@ -529,20 +529,20 @@
         build.push([["circlet", "circlet", "quelling"], "You'll be building out the circlets into wraith bands, and the quelling is necessary to help you cut trees for both cliff jungling and choke-point jungling. Don't worry about healing items - we'll be using death-heals instead as it's faster and more cost effective."]);
         build.push([["wraithBand", "aquila"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
         build.push([["tpboots"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
-        build.push([["sAndY"], ""]);
-        build.push([["skadi"], ""])
-        build.push([["butterfly"], ""])
-        build.push([["butterfly", "diffusal"], ""])
+        build.push([["sAndY"], "S&Y provides a much needed HP boost for the quite squishy TB, and the movement speed helps with the ratty nature of this build."]);
+        build.push([["skadi"], "Skadi provides you with the means to close distance to get your Q off, as well as a ton of tankiness/damage for your illusions."])
       }
       else {
         build.push([["tango", "salve", "circlet", "circlet"], "TB's starting health is one of the worst in the game. He's highly succeptable to magic harass early game - make sure you have enough healing to survive the early assault."]);
         build.push([["wraithBand", "aquila"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
         build.push([["tpboots"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
-        build.push([["sAndY"], ""]);
-        build.push([["skadi"], ""])
-        build.push([["butterfly"], ""])
-        build.push([["butterfly", "diffusal"], ""])
+        build.push([["sAndY"], "S&Y provides a much needed HP boost for the quite squishy TB, and the movement speed helps with the ratty nature of this build."]);
+        build.push([["skadi"], "Skadi provides you with the means to close distance to get your Q off, as well as a ton of tankiness/damage for your illusions."])
       }
+
+      build.push([["butterfly"], "Few heroes want to expend many spells on illusions. Once your illusions are tanky enough, the evasion will mean MKB carriers of the team (generally carries) will have to commit to defending your split pushes. Not only that but the added ability to tank tower shots is really nice."])
+      if(decisionVariables.buildTips.enemyMKB) build.push([["diffusal"], "Diffusal is a nice end game item choice, especially with the mana burn now working (slightly) for ranged illusions in 6.84. It provides great stats for a fairly low cost, and will give your images a nice boost in damage."])
+      else build.push([["butterfly", "diffusal"], "Diffusal is a nice end game item choice, especially with the mana burn now working (slightly) for ranged illusions in 6.84. It provides great stats for a fairly low cost, and will give your images a nice boost in damage. If you're rolling in gold, don't be afraid to go a second butterfly, especially if they're lacking MKBs on the team."])
 
 
       decisionTree.build = build;
@@ -553,12 +553,6 @@
 
 
   var decisionVariables = {
-    timeTips : {
-      roshUp : true,
-      countingPrng : false,
-      checkingBlur : false,
-      usingMedallion : false
-    },
     buildTips : {
       farmPriority : 2,
       lane : "middle",
@@ -571,33 +565,5 @@
       playerCanMicro : false
     }
   };
-  var prngStats = {
-    cValue : 0.0322,
-    computeForN : function(n) {
-      var currentC = n;
-      var chance = 1;
-      for(var i = 0; i < 4; i++){
-        chance = chance * ( 1 - currentC );
-        currentC = currentC + prngStats.cValue;
-      }
-      return 1 - chance;
-    },
-    listStats : function(){
-      maxAttacks = 1 / prngStats.cValue;
-      attackIndexes = [];
-      attackValues = [];
-      for(var i = 0; i < maxAttacks - 1; i++){
-        var attackPercentage = prngStats.computeForN(i * prngStats.cValue) * 100;
-        //floating point corrections
-        if(attackPercentage > 100)
-          attackPercentage = 99.99;
-        attackValues.push(Math.round(attackPercentage * 100) / 100);
-      }
-      return attackValues;
-    }
-
-  };
 
   decisionTree.checkLane();
-
-
