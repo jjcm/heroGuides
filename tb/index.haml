@@ -376,6 +376,11 @@
       %h3 Death heals often take less time than walking back to fountain. 
       %video{:loop => "true", :autoplay => "true"}
         %source{:src => "death_heal.mp4", :type => "video/mp4"}
+      %p
+        Below is a map showing the level in each camp where it's more efficient to die than to walk back to base. Note that at the furthest camp it hits level 7 for a terrorblade with brown boots. The map will be different for slower heroes (a CM without boots can die and respawn at level 10 faster than it takes her to walk back from the furthest camp), but the values below are a good rule of thumb.
+      %h3 Death heal levels by camp
+      %img{:src => "deathhealMap.jpg"}
+
       %video{:loop => "true", :autoplay => "true"}
         %source{:src => "dire_jungle_1.mp4", :type => "video/mp4"}
       %video{:loop => "true", :autoplay => "true"}
@@ -454,18 +459,33 @@
   var decisionTree = {
     checkLane : function(){
       display("What lane are you in?",
-      ["safe", function(){decisionVariables.buildTips.lane = "safe"; decisionTree.checkDamageType()}], 
-      ["jungle", function(){decisionVariables.buildTips.lane = "jungle"; decisionTree.checkDamageType()}]) 
+      ["safe", function(){decisionVariables.buildTips.lane = "safe"; decisionTree.checkBurst()}], 
+      ["jungle", function(){decisionVariables.buildTips.lane = "jungle"; decisionTree.checkBurst()}]) 
     },
-    checkDamageType : function(){
-      display("Is the enemy primarily magic damage or physical damage?",
-      ["magical", function(){decisionVariables.buildTips.enemyDamageType = "magical"; decisionTree.checkMKB()}], 
-      ["physical", function(){decisionVariables.buildTips.enemyDamageType = "physical"; decisionTree.checkMKB()}]);
+    checkBurst : function(){
+      display("Does the enemy team have three or more nukers (Zeus, Lina, etc)?",
+      ["yes", function(){decisionVariables.buildTips.enemyNukes = true; decisionTree.checkMKB()}], 
+      ["no", function(){decisionVariables.buildTips.enemyNukes = false; decisionTree.checkMKB()}]);
     },
     checkMKB : function(){
       display("Does their team have multiple heroes who will go MKB?", 
-      ["yes", function(){decisionVariables.buildTips.enemyMKB = true; decisionTree.generateBuild()}], 
-      ["no", function(){decisionVariables.buildTips.enemyMKB = false; decisionTree.generateBuild()}]);
+      ["yes", function(){decisionVariables.buildTips.enemyMKB = true; decisionTree.checkRat()}], 
+      ["no", function(){decisionVariables.buildTips.enemyMKB = false; decisionTree.checkRat()}]);
+    },
+    checkRat : function(){
+      display("Will you be able to rat full time, or will you need to help in teamfights?", 
+      ["rat for days", function(){decisionVariables.buildTips.rat = true; decisionTree.checkSilence()}], 
+      ["teamfight", function(){decisionVariables.buildTips.rat = false; decisionTree.checkSilence()}]);
+    },
+    checkSilence : function(){
+      display("Does the enemy have multiple silences?", 
+      ["yes", function(){decisionVariables.buildTips.silence = true; decisionTree.checkSpiderNP()}], 
+      ["no", function(){decisionVariables.buildTips.silence = false; decisionTree.checkSpiderNP()}]);
+    },
+    checkSpiderNP : function(){
+      display("Does their team have Nature's Prophet or Broodmother?", 
+      ["yes", function(){decisionVariables.buildTips.radiance = true; decisionTree.generateBuild()}], 
+      ["no", function(){decisionVariables.buildTips.radiance = false; decisionTree.generateBuild()}]);
     },
 
     generateBuild : function(){
@@ -524,22 +544,32 @@
 
       if(decisionVariables.buildTips.lane == "jungle"){
         build.push([["circlet", "circlet", "quelling"], "You'll be building out the circlets into wraith bands, and the quelling is necessary to help you cut trees for both cliff jungling and choke-point jungling. Don't worry about healing items - we'll be using death-heals instead as it's faster and more cost effective."]);
-        build.push([["wraithBand", "aquila"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
-        build.push([["tpboots"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
-        build.push([["sAndY"], "S&Y provides a much needed HP boost for the quite squishy TB, and the movement speed helps with the ratty nature of this build."]);
-        build.push([["skadi"], "Skadi provides you with the means to close distance to get your Q off, as well as a ton of tankiness/damage for your illusions."])
       }
       else {
         build.push([["tango", "salve", "circlet", "circlet"], "TB's starting health is one of the worst in the game. He's highly succeptable to magic harass early game - make sure you have enough healing to survive the early assault."]);
-        build.push([["wraithBand", "aquila"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
-        build.push([["tpboots"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
-        build.push([["sAndY"], "S&Y provides a much needed HP boost for the quite squishy TB, and the movement speed helps with the ratty nature of this build."]);
-        build.push([["skadi"], "Skadi provides you with the means to close distance to get your Q off, as well as a ton of tankiness/damage for your illusions."])
       }
+      build.push([["wraithBand", "aquila", "brownboots"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
+      if(decisionVariables.buildTips.radiance)
+        build.push([["radiance"], "Normally radiance isn't that great of an item. While it helps your farm, it makes your illusions as fragile as glass and doesn't help much for taking objectives. The exception to this is if they have a Brood or NP. Both create massive amounts of creeps, and TB doesn't have a way of dealing with large crowds easily. Radiance is a good counter to either of these heroes."]);
+      else
+        build.push([["yasha"], "Yasha is a great source of early agi and will accelerate your farm. Remember though that you're going to be squishy, so use the extra move speed to avoid confrontations if they present themselves."]);
+      build.push([["tpboots"], "TP boots are the core of any rat build. They'll boost your farm, and let you take key objectives when your opponent is distracted elsewhere."]);
+      if(decisionVariables.buildTips.silence)
+        build.push([["manta"], "Manta is great for breaking silences that would otherwise prevent you from getting off a life-saving ult. If the enemy team is packing silences, it's a great choice. It will also boost your tower taking abilities quite a bit."]);
+      else if(decisionVariables.buildTips.rat)
+        build.push([["manta"], "Manta won't come online as fast as S&Y, but it will make your end game rat better. If your team can make space, get manta. It will also help purge silences in a pinch"]);
+      else
+        build.push([["sAndY"], "S&Y provides a much needed HP boost for the quite squishy TB, and the movement speed helps with the ratty nature of this build."]);
 
-      build.push([["butterfly"], "Few heroes want to expend many spells on illusions. Once your illusions are tanky enough, the evasion will mean MKB carriers of the team (generally carries) will have to commit to defending your split pushes. Not only that but the added ability to tank tower shots is really nice."])
+      build.push([["skadi"], "Skadi provides you with the means to close distance to get your Q off, as well as a ton of tankiness/damage for your illusions."])
+      if(decisionVariables.buildTips.enemyNukes){
+        build.push([["skadi"], "If the enemy team is packing heavy nukes, a second skadi is an excellent choice. It provides tons of agi for your illusions and the tankiness you need to survive burst damage."])
+        build.push([["butterfly"], "Few heroes want to expend many spells on illusions. Once your illusions are tanky enough, the evasion will mean MKB carriers of the team (generally carries) will have to commit to defending your split pushes. Not only that but the added ability to tank tower shots is really nice."])
+      }
+      else
+        build.push([["butterfly"], "Few heroes want to expend many spells on illusions. Once your illusions are tanky enough, the evasion will mean MKB carriers of the team (generally carries) will have to commit to defending your split pushes. Not only that but the added ability to tank tower shots is really nice."])
       if(decisionVariables.buildTips.enemyMKB) build.push([["diffusal"], "Diffusal is a nice end game item choice, especially with the mana burn now working (slightly) for ranged illusions in 6.84. It provides great stats for a fairly low cost, and will give your images a nice boost in damage."])
-      else build.push([["butterfly", "diffusal"], "Diffusal is a nice end game item choice, especially with the mana burn now working (slightly) for ranged illusions in 6.84. It provides great stats for a fairly low cost, and will give your images a nice boost in damage. If you're rolling in gold, don't be afraid to go a second butterfly, especially if they're lacking MKBs on the team."])
+      else if(!decisionVariables.buildTips.radiance) build.push([["butterfly", "diffusal"], "Diffusal is a nice end game item choice, especially with the mana burn now working (slightly) for ranged illusions in 6.84. It provides great stats for a fairly low cost, and will give your images a nice boost in damage. If you're rolling in gold, don't be afraid to go a second butterfly, especially if they're lacking MKBs on the team."])
 
 
       decisionTree.build = build;
