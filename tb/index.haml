@@ -43,13 +43,19 @@
     font-family: 'Open Sans', sans-serif
     font-size: 40px
     text-transform: uppercase
-  h2
+  h2, h3
     font-family: 'Open Sans', sans-serif
     font-size: 40px
     margin-bottom: 32px
     margin-top: 92px
     text-transform: uppercase
   h3
+    font-size: 20px
+    color: #FF3636
+    margin-top: 20px
+    margin-bottom: -8px
+    color: #368198
+  h4
     font-family: 'Exo', sans-serif
     font-weight: 100
     font-style: italic
@@ -68,14 +74,13 @@
     font-size: 16px
     color: #ddd
   video
-    margin-bottom: 32px
+    margin-bottom: 8px
 
   #header
     
     #hero, #hero_bg
-      width: 102%
+      width: 100%
       min-width: 1024px
-      margin-left: -1%
       position: absolute
       z-index: -2
       top: 0
@@ -307,14 +312,15 @@
         width: 62px
         height: 62px
         margin: 1px
+        background-size: cover
       .q
-        background-image: url(q.jpg)
+        background-image: url(q.png)
       .w
-        background-image: url(w.jpg)
+        background-image: url(w.png)
       .e
-        background-image: url(e.jpg)
+        background-image: url(e.png)
       .r
-        background-image: url(r.jpg)
+        background-image: url(r.png)
       .s
         background-image: url(s.jpg)
 
@@ -372,21 +378,32 @@
     #position2
       %h2 Jungle
       %p
+        Terrorblades high base starting armor and solid agi gain make him a fairly viable jungle. You wont exceed the GPM you'd get from a safelane freefarm, but few enemies expect it, and you can sustain a respectable income during the process. Be sure to use the techniques below to maximize your efficiency.
+      %h3 Chokepoints and Cliff Jungling
+      %p 
+        With any jungler, you'll want to minimize the damage you sustain as you take down the creeps. Carving choke points with quelling blade will allow you to only fight one or two creeps at a time, as opposed to the whole camp. 
+      %h4 Carving choke points with quelling blade.
+      %video{:loop => "true", :autoplay => "true"}
+        %source{:src => "dire_jungle_1.mp4", :type => "video/mp4"}
+      %p
+        Since terrorblade has a ranged mode as well, it opens up opportunities for him to cliff jungle. Use your quelling blade before the game starts to carve lanes for you to attack creeps from. Be sure to pay attention to your timing - you'll want to stack as many creeps in these camps as you can before you use metamorphosis and take them out. 
+      %h4 Cliff jungling on dire.
+      %video{:loop => "true", :autoplay => "true"}
+        %source{:src => "dire_jungle_2.mp4", :type => "video/mp4"}
+      %h4 Cliff jungling on radiant.
+      %video{:loop => "true", :autoplay => "true"}
+        %source{:src => "radiant_jungle_1.mp4", :type => "video/mp4"}
+      %h3 Deathheals
+      %p
         One oft-overlooked technique while jungling is dying to heal. Running back to base and then running back to jungle wastes more time than simply buying out, letting yourself die to creeps, respawning, and running back. The seconds you save doing this can often lead to another stack of a camp or another collection of a rune. Don't discount its usefulness. If you are going to death heal, make sure you communicate it to your team - dying to neutrals is often surprising and can easily push already agitated teammates over the edge. Even if something is technically advantageous, it might not be advantageous for the mental state of your team. 
-      %h3 Death heals often take less time than walking back to fountain. 
+      %h4 Death heals often take less time than walking back to fountain. 
       %video{:loop => "true", :autoplay => "true"}
         %source{:src => "death_heal.mp4", :type => "video/mp4"}
       %p
-        Below is a map showing the level in each camp where it's more efficient to die than to walk back to base. Note that at the furthest camp it hits level 7 for a terrorblade with brown boots. The map will be different for slower heroes (a CM without boots can die and respawn at level 10 faster than it takes her to walk back from the furthest camp), but the values below are a good rule of thumb.
-      %h3 Death heal levels by camp
+        Below is a map showing the max level at which dying is faster than walking back to base for each camp. Note that at the furthest camp it hits level 7 for a terrorblade with brown boots. The map will be different for slower heroes (a CM without boots can die and respawn at level 10 faster than it takes her to walk back from the furthest camp), but the values below are a good rule of thumb.
+      %h4 Death heal levels by camp
       %img{:src => "deathhealMap.jpg"}
 
-      %video{:loop => "true", :autoplay => "true"}
-        %source{:src => "dire_jungle_1.mp4", :type => "video/mp4"}
-      %video{:loop => "true", :autoplay => "true"}
-        %source{:src => "dire_jungle_2.mp4", :type => "video/mp4"}
-      %video{:loop => "true", :autoplay => "true"}
-        %source{:src => "radiant_jungle_1.mp4", :type => "video/mp4"}
       %p
         Work towards your early game items as suggested in the build. Your objective as a 2 or a 3 is to create chaos so your position 1 can farm. Rotate often - with blur they wont see your rotations on the minimap. If you're ganking everywhere, they'll devote more resources to trying to find you and less resources to trying to shut down your carry. Keep them worried, eat their supports. Get in, crit, then get out and run to another lane. With PA it's all about cardio.
       %p
@@ -395,44 +412,53 @@
     #skillBuild
       %h2
         Skill Build
+
+      %h4 Lane 
       %p
         I generally go one of two very similar skill builds. If there's a lot of physical harrass in lane I'll go blur at level two:
       .build
-        .q
         .e
         .q
+        .e
         .w
-        .q
+        .e
+        .w
+        .e
+        .w
+        .w
         .r
-        .q
-        .w
-        .w
-        .w
-        .r
-        .e
-        .e
-        .e
         .s
-        .r
+
+      %h4 Dire Jungle
       %p
         If I need the extra mobility to evade stuns or as an escape, I'll get blink strike at two instead.
       .build
-        .q
         .w
-        .q
         .e
-        .q
-        .r
-        .q
+        .e
         .w
+        .e
         .w
+        .e
         .w
         .r
-        .e
-        .e
-        .e
         .s
+
+      %h4 Radiant Jungle
+      %p
+        If I need the extra mobility to evade stuns or as an escape, I'll get blink strike at two instead.
+      .build
+        .w
+        .e
+        .e
+        .w
+        .e
+        .w
+        .e
+        .w
         .r
+        .s
+
       %p
         If you want to do a very early rosh, you can max out blur first instead. With maxed out blur you should be able to take rosh with only a medallion, but it cuts down on a lot of your early game ganking capabilities, so it's pretty situational.
     #conclusion
