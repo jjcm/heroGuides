@@ -75,6 +75,8 @@
     color: #ddd
   video
     margin-bottom: 8px
+  .clear
+    clear: both
 
   #header
     
@@ -119,7 +121,20 @@
   #intro
     margin-top: 40px
     width: 500px
+    font-style: italic
+    text-align: justify
+    .big
+      font-size: 48px
+      line-height: 0px
+      position: relative
+      top: 20px
+      margin-right: -6px
+    .attribution
+      opacity: 0.5
+      float: right
+      margin-top: -10px
   #itemBuild
+    clear: both
     width: 1024px
     h2
       margin-top: 64px
@@ -165,42 +180,16 @@
     padding: 20px
     text-align: center
     height: 112px
-  //prng
-  #prngGraph
-    margin-top: 40px
-  .quote
-    text-align: center
-    font-family: 'Exo', Georgia, serif
-    font-style: italic
-    font-size: 28px
-    margin: 40px
-    color: #fff
-  #canvasLabel
-    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
-    font-size: 14px
-    color: #666
-    margin-top: 4px
-    text-align: center
-    #colorLabels
-      color: #aaa
-      width: 600px
-      margin-left: auto
-      margin-right: auto
-      height: 40px
-      margin-top: 10px
-      .label
-        float: left
-        margin-left: 30px
-      .four, .one
-        width: 20px
-        height: 20px
-        display: inline-block
-        position: relative
-        top: 5px
-      .four
-        background-color: #168dfc
-      .one
-        background-color: rgba(250,250,250,1)
+  .minimap
+    height: 340px
+    margin-bottom: 20px
+  .minimap, .minimapCopy
+    float: left
+  .minimapCopy
+    width: 618px
+    margin-left: 40px
+    p:first-child
+      margin-top: 0px
   #build
     .ministep
       padding: 10px
@@ -305,7 +294,7 @@
         
   #skillBuild
     .build
-      margin-top: 40px
+      margin-top: 20px
       padding-bottom: 72px
       div
         float: left
@@ -356,7 +345,29 @@
     #introContainer
       #intro
         %p
-          lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nunc quis diam sodales viverra sed a arcu. Aliquam elementum, neque in viverra fringilla, risus odio tempus ligula, eu aliquet nibh ante id urna. Suspendisse sed tortor eu felis aliquet placerat. Nullam vel justo nec lacus ornare imperdiet et at lorem. Sed ut faucibus nisi. Cras gravida egestas mauris a cursus. Sed in suscipit est, at varius enim. aa
+          %span.big
+            &ldquo;
+          Terrorblade is one of the hardest carries in the game. He is much like Anti-Mage in the fact that he can farm extremely fast and with the accumulated before everyone else gold he can take over the game and should end it mercifully when he has the chance. The holy trinity of hard carries is Medusa, Faceless Void and Spectre but with proper positioning and item build Terrorblade can kill any one of those heroes one on one.
+          %span.big
+            &rdquo; 
+        .attribution
+          &ndash;DTH.RampageJohnson
+
+    #playStyle
+      %h2 Play style
+      %p
+        Terrorblade is not made for teamfights. He has no stuns and needs time to create images to get to his full damage output. What he excels at is pushing. When playing him you should seek to avoid confrontation while applying constant pressure to the enemy team's undefended lanes. 
+      %video.minimap{:loop => "true", :autoplay => "true"}
+        %source{:src => "minimap.mp4", :type => "video/mp4"}
+      .minimapCopy
+        %p
+          The minimap on the left shows the movements of a terrorblade (shown as the yellow x) during a typical game. Note his movements - always applying pressure in lanes that are undefended, leaving the lane when the team comes to defend, and taking objectives when the enemy team is looking to take their own. 
+        %p
+          If the enemy team is initiating a heavy push, your job as Terrorblade is to counterpush a different lane so the other team has to decide between trying to outpush an undefended Terrorblade or to cancel their push and TP to defend their own buildings. 
+        %p
+          If you trade objectives it's usually worth it for Terrorblade since teleport boots are an integral part of his early game build. He'll thrive on enemy objectives being down and creeps pushing deeper into enemy territory. It creates more opportunities to teleport into unguarded areas and take objectives. If they teleport to defend, then you've wasted the other teams time. Both are wins for Terrorblade as long as you don't die in the process. 
+      %p.clear
+        If you're trying to decide whether or not to pick Terrorblade in a match, consider your teammates. Make sure that they have heroes that can survive 4v5 skirmishes, and that they can control the early game so you have space to farm and push. 
 
     #itemBuild
       %h2 Item build
@@ -404,18 +415,11 @@
       %h4 Death heal levels by camp
       %img{:src => "deathhealMap.jpg"}
 
-      %p
-        Work towards your early game items as suggested in the build. Your objective as a 2 or a 3 is to create chaos so your position 1 can farm. Rotate often - with blur they wont see your rotations on the minimap. If you're ganking everywhere, they'll devote more resources to trying to find you and less resources to trying to shut down your carry. Keep them worried, eat their supports. Get in, crit, then get out and run to another lane. With PA it's all about cardio.
-      %p
-        If you're building deso, as soon as you have that and vlads go rosh. Dont worry about smoking in, just walk right into the rosh pit. Remember you wont show up on the minimap with blur. As long as your blur status doesnt disappear when you walk in, you didnt show up on the minimap. With deso/medallion/vlads, you can take rosh in about 30-40 seconds. Use your dagger to break his spell shield then blink onto him once it's broken. Keep spamming medallion and blink strike. 
-
     #skillBuild
       %h2
         Skill Build
 
-      %h4 Lane 
-      %p
-        I generally go one of two very similar skill builds. If there's a lot of physical harrass in lane I'll go blur at level two:
+      %h3 Lane 
       .build
         .e
         .q
@@ -428,10 +432,25 @@
         .w
         .r
         .s
+      %p
+        I generally go one of two very similar skill builds. If there's a lot of physical harrass in lane I'll go blur at level two:
 
-      %h4 Dire Jungle
+      %h3 Radiant Jungle
+      .build
+        .e
+        .w
+        .e
+        .w
+        .e
+        .w
+        .e
+        .w
+        .r
+        .s
       %p
         If I need the extra mobility to evade stuns or as an escape, I'll get blink strike at two instead.
+
+      %h3 Dire Jungle
       .build
         .w
         .e
@@ -443,21 +462,9 @@
         .w
         .r
         .s
-
-      %h4 Radiant Jungle
       %p
         If I need the extra mobility to evade stuns or as an escape, I'll get blink strike at two instead.
-      .build
-        .w
-        .e
-        .e
-        .w
-        .e
-        .w
-        .e
-        .w
-        .r
-        .s
+
 
       %p
         If you want to do a very early rosh, you can max out blur first instead. With maxed out blur you should be able to take rosh with only a medallion, but it cuts down on a lot of your early game ganking capabilities, so it's pretty situational.
