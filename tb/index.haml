@@ -291,11 +291,18 @@
       .tpboots
         //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/travel_boots_lg.png)
         background-position: 0 -64px * 10
+      .radiance
+        background-position: 0 -64px * 13
+      .brownBoots
+        background-position: 0 -64px * 14
         
   #skillBuild
     .build
+      width: 1024px
       margin-top: 20px
-      padding-bottom: 72px
+      border-spacing: 0px
+      td.skill
+        width: 62px
       div
         float: left
         width: 62px
@@ -347,7 +354,7 @@
         %p
           %span.big
             &ldquo;
-          Terrorblade is one of the hardest carries in the game. He is much like Anti-Mage in the fact that he can farm extremely fast and with the accumulated before everyone else gold he can take over the game and should end it mercifully when he has the chance. The holy trinity of hard carries is Medusa, Faceless Void and Spectre but with proper positioning and item build Terrorblade can kill any one of those heroes one on one.
+          Terrorblade is one of the hardest carries in the game. He is much like Anti-Mage in the fact that he can farm extremely fast and with the accumulated gold he can take over the game and end it mercifully when he has the chance. The holy trinity of hard carries is Medusa, Faceless Void and Spectre but with proper positioning and item build Terrorblade can kill any one of those heroes one on one.
           %span.big
             &rdquo; 
         .attribution
@@ -420,50 +427,109 @@
         Skill Build
 
       %h3 Lane 
-      .build
-        .e
-        .q
-        .e
-        .w
-        .e
-        .w
-        .e
-        .w
-        .w
-        .r
-        .s
+      %table.build
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .q
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .r
+        %td
+        %td.skill
+          .s
       %p
-        I generally go one of two very similar skill builds. If there's a lot of physical harrass in lane I'll go blur at level two:
+        If you have supports who can lock down the enemy hero long enough for you to get a Reflection off, pick up an early level of it as a value point. After that, continue to max out your Conjure Image and Metamorphosis. A single level of Sunder is all you need - additional levels only reduce cooldown and manacost, and since you're avoiding teamfights you shouldn't be using it that often. Once your Metamorphosis and Conjure Image are maxed, pump everything into stats.
 
       %h3 Radiant Jungle
-      .build
-        .e
-        .w
-        .e
-        .w
-        .e
-        .w
-        .e
-        .w
-        .r
-        .s
+      %table.build
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .r
+        %td
+        %td.skill
+          .s
       %p
-        If I need the extra mobility to evade stuns or as an escape, I'll get blink strike at two instead.
+        Radiant jungle is a bit more difficult, so you'll have to rely on cliff farming earlier to get your levels. Take Metamorphosis at level 1. After Metamorphosis and Conjure image are maxed, take a level of Sunder then pump everything into stats.
 
       %h3 Dire Jungle
-      .build
-        .w
-        .e
-        .e
-        .w
-        .e
-        .w
-        .e
-        .w
-        .r
-        .s
+      %table.build
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .e
+        %td
+        %td.skill
+          .w
+        %td
+        %td.skill
+          .r
+        %td
+        %td.skill
+          .s
       %p
-        If I need the extra mobility to evade stuns or as an escape, I'll get blink strike at two instead.
+        Dire allows for choke point jungling at level 1, so grab your Conjure Image first. After that prioritize Metamorphosis. Again, after you have Conjure Image and Metamorphosis maxed, take a single level of your ult then pump the rest into stats.  
 
 
       %p
@@ -581,7 +647,7 @@
       else {
         build.push([["tango", "salve", "circlet", "circlet"], "TB's starting health is one of the worst in the game. He's highly succeptable to magic harass early game - make sure you have enough healing to survive the early assault."]);
       }
-      build.push([["wraithBand", "aquila", "brownboots"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
+      build.push([["wraithBand", "aquila", "brownBoots"], "Finish your wraith bands and build an aquila. These two items combined with quelling blade and TB's excellent starting armor should let you jungle extremely efficiently."]);
       if(decisionVariables.buildTips.radiance)
         build.push([["radiance"], "Normally radiance isn't that great of an item. While it helps your farm, it makes your illusions as fragile as glass and doesn't help much for taking objectives. The exception to this is if they have a Brood or NP. Both create massive amounts of creeps, and TB doesn't have a way of dealing with large crowds easily. Radiance is a good counter to either of these heroes."]);
       else
