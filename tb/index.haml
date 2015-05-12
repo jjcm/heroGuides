@@ -185,12 +185,23 @@
     margin-bottom: 20px
   .minimap, .minimapCopy
     float: left
+    .icon
+      background-image: url('tb_icon.png')
+      background-repeat: no-repeat
+      background-size: 22px
+      padding-left: 24px
+      padding-right: 4px
+      background-position: 0 -2px
+      font-weight: bold
+      margin-top: -2px
+      width: 44px
+      height: 44px
   .minimapCopy
     width: 618px
     margin-left: 40px
     p:first-child
       margin-top: 0px
-  #build
+  #build, #otherThoughts
     .ministep
       padding: 10px
       background-image: url('item_guide_spacer2.png')
@@ -205,98 +216,114 @@
       padding-bottom: 10px
       margin: 10px
       color: #fff
-      .item
-        margin: 10px
-        margin-left: auto
-        margin-right: auto
-        background-color: #666
-        background-repeat: no-repeat
-        //box-shadow: inset 0 0 12px 0 rgba(7,7,6,1)
-        width: 85px
-        height: 64px
-        background-image: url(gray_bg_items.png)
-      .orSpacer
-        text-align: center
-      .description
-        display: none
-      .tango
-        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/tango_lg.png)
-        background-position: 0 -64px * 5
-      .clarity
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/clarity_lg.png)
-      .gg
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/branches_lg.png)
-      .circlet
-        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/circlet_lg.png)
-        background-position: 0 -64px * 7
-      .quelling
-        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/quelling_blade_lg.png)
-        background-position: 0 -64px * 2
-      .salve
-        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/flask_lg.png)
-        background-position: 0 -64px * 6
-      .wraithBand
-        background-position: 0 -64px * 8
-      .aquila
-        background-position: 0 -64px * 9
-      .diffusal
-        background-position: 0 -64px * 11
-      .ringOfProtection
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/ring_of_protection_lg.png)
-      .ringOfBasilus
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/ring_of_basilius_lg.png)
-      .powerTreads
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/power_treads_lg.png)
-      .phaseBoots
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/phase_boots_lg.png)
-      .medallion
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/medallion_of_courage_lg.png)
-      .vlads
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/vladmir_lg.png)
-      .bkb
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/black_king_bar_lg.png)
-      .deso
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/desolator_lg.png)
-      .helmOfDom
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/helm_of_the_dominator_lg.png)
-      .morbidMask
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/lifesteal_lg.png)
-      .mkb
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/monkey_king_bar_lg.png)
-      .maelstrom
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/maelstrom_lg.png)
-      .basher
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/basher_lg.png)
-      .yasha
-        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/yasha_lg.png)
-      .sAndY
-        background-position: 0 -64px
-      .butterfly
-        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/butterfly_lg.png)
-        background-position: 0 -64px * 4
-      .satanic
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/satanic_lg.png)
-      .mjollnir
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/mjollnir_lg.png)
-      .abyssal
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/abyssal_blade_lg.png)
-      .manta
-        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/manta_lg.png)
-        background-position: 0 -64px * 12
-      .skadi
-        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/skadi_lg.png)
-        background-position: 0 -64px * 3
-      .divine
-        background-image: url(http://cdn.dota2.com/apps/dota2/images/items/rapier_lg.png)
-      .tpboots
-        //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/travel_boots_lg.png)
-        background-position: 0 -64px * 10
-      .radiance
-        background-position: 0 -64px * 13
-      .brownBoots
-        background-position: 0 -64px * 14
+    .item
+      margin: 10px
+      margin-left: auto
+      margin-right: auto
+      background-color: #666
+      background-repeat: no-repeat
+      //box-shadow: inset 0 0 12px 0 rgba(7,7,6,1)
+      width: 85px
+      height: 64px
+      background-image: url(gray_bg_items.png)
+    .orSpacer
+      text-align: center
+    .description
+      display: none
+    .tango
+      //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/tango_lg.png)
+      background-position: 0 -64px * 5
+    .clarity
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/clarity_lg.png)
+    .gg
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/branches_lg.png)
+    .circlet
+      //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/circlet_lg.png)
+      background-position: 0 -64px * 7
+    .quelling
+      //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/quelling_blade_lg.png)
+      background-position: 0 -64px * 2
+    .salve
+      //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/flask_lg.png)
+      background-position: 0 -64px * 6
+    .wraithBand
+      background-position: 0 -64px * 8
+    .aquila
+      background-position: 0 -64px * 9
+    .diffusal
+      background-position: 0 -64px * 11
+    .ringOfProtection
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/ring_of_protection_lg.png)
+    .ringOfBasilus
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/ring_of_basilius_lg.png)
+    .powerTreads
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/power_treads_lg.png)
+    .phaseBoots
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/phase_boots_lg.png)
+    .medallion
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/medallion_of_courage_lg.png)
+    .vlads
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/vladmir_lg.png)
+    .bkb
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/black_king_bar_lg.png)
+    .deso
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/desolator_lg.png)
+    .helmOfDom
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/helm_of_the_dominator_lg.png)
+    .morbidMask
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/lifesteal_lg.png)
+    .mkb
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/monkey_king_bar_lg.png)
+    .maelstrom
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/maelstrom_lg.png)
+    .basher
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/basher_lg.png)
+    .yasha
+      //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/yasha_lg.png)
+    .sAndY
+      background-position: 0 -64px
+    .butterfly
+      //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/butterfly_lg.png)
+      background-position: 0 -64px * 4
+    .satanic
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/satanic_lg.png)
+    .mjollnir
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/mjollnir_lg.png)
+    .abyssal
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/abyssal_blade_lg.png)
+    .manta
+      //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/manta_lg.png)
+      background-position: 0 -64px * 12
+    .skadi
+      //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/skadi_lg.png)
+      background-position: 0 -64px * 3
+    .divine
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/rapier_lg.png)
+    .blinkdagger
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/blink_lg.png)
+    .drums
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/ancient_janggo_lg.png)
+    .heart
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/heart_lg.png)
+    .eblade
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/ethereal_blade_lg.png)
+    .armlet
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/armlet_lg.png)
+    .dagon
+      background-image: url(http://cdn.dota2.com/apps/dota2/images/items/dagon_lg.png)
+    .tpboots
+      //background-image: url(http://cdn.dota2.com/apps/dota2/images/items/travel_boots_lg.png)
+      background-position: 0 -64px * 10
+    .radiance
+      background-position: 0 -64px * 13
+    .brownBoots
+      background-position: 0 -64px * 14
         
   #skillBuild
+    h3
+      margin-top: 80px
+    h3:nth-child(2)
+      margin-top: 20px
     .build
       width: 1024px
       margin-top: 20px
@@ -319,6 +346,44 @@
         background-image: url(r.png)
       .s
         background-image: url(s.jpg)
+  #otherThoughts
+    clear: both
+    h2
+      margin-bottom: 60px
+    .build
+      clear: both
+      margin-bottom: 60px
+    .items
+      float: left
+      margin-bottom: 60px
+      .item
+        float: left
+        margin-right: 20px
+        margin-top: 0px
+    .comments
+      font-style: italic
+      text-align: justify
+      .big
+        font-size: 48px
+        line-height: 0px
+        position: relative
+        top: 20px
+        margin-right: -6px
+  #conclusion
+    clear: both
+    margin-top: 300px
+    h2
+      margin-bottom: 0px
+      margin-left: 103px
+      margin-top: 0px
+    .sig
+      margin-top: 0px
+      margin-left: 283px
+      opacity: 0.3
+      text-transform: uppercase
+      padding-bottom: 300px
+      a
+        color: #ddd
 
 
 #nav
@@ -368,7 +433,7 @@
         %source{:src => "minimap.mp4", :type => "video/mp4"}
       .minimapCopy
         %p
-          The minimap on the left shows the movements of a terrorblade (shown as the yellow x) during a typical game. Note his movements - always applying pressure in lanes that are undefended, leaving the lane when the team comes to defend, and taking objectives when the enemy team is looking to take their own. 
+          The minimap on the left shows the movements of a <span class='icon'>terrorblade</span> during a typical game. Note his movements - always applying pressure in lanes that are undefended, leaving the lane when the team comes to defend, and taking objectives when the enemy team is looking to take their own. 
         %p
           If the enemy team is initiating a heavy push, your job as Terrorblade is to counterpush a different lane so the other team has to decide between trying to outpush an undefended Terrorblade or to cancel their push and TP to defend their own buildings. 
         %p
@@ -534,9 +599,78 @@
 
       %p
         If you want to do a very early rosh, you can max out blur first instead. With maxed out blur you should be able to take rosh with only a medallion, but it cuts down on a lot of your early game ganking capabilities, so it's pretty situational.
+
+    #otherThoughts
+      %h2
+        RampageJohnson's thoughts on other items
+      .build
+        .items
+          .powerTreads.item
+          .drums.item
+        .comments
+          %span.big
+            &ldquo;
+          Cheap and effective, why not, but generally doesn't give you as much mobility as the Boots of Travel and Yasha build does, AND you lack the global presence which would unnerve the enemy team.
+          %span.big
+            &rdquo; 
+      .build
+        .items
+          .radiance.item
+        .comments
+          %span.big
+            &ldquo;
+          Terrorblade's illusions only take the burn effect and your goal is to molest towers, not melt creep waves! An illusion hero like Naga Siren can afford the Radiance since she has a teamfight ultimate that allows high ground to be reached, hence late game she becomes more of a 5 man carry, and the damage mainly comes from the rest of her team. Her illusions don't last as long as Terrorblade's illusions do and they can do only so much damage. Radiance does okay damage but it gives no tankability at all. Terrorblade is all about the stats!
+          %span.big
+            &rdquo; 
+      .build
+        .items
+          .heart.item
+        .comments
+          %span.big
+            &ldquo;
+          Great tankability but it isn't generally THAT good of an idea unless your enemy team has a lot of magical damage and it can be expected since you are Terrorblade. It doesn't offer as much EHP as Butterfly does and the strength does not translate to your base damage which is derived from your agility. All in all, a so-so item to build on Terrorblade.
+          %span.big
+            &rdquo; 
+      .build
+        .items
+          .satanic.item
+        .comments
+          %span.big
+            &ldquo;
+          I find lifesteal on Terrorblade pointless since you splitpush all the time and you have built-in life swap and if careful enough you can pull it off during a fight. You are ranged as well so by the time the enemy comes to you and deals damage so you can steal your health back, they'd be already dead.
+          %span.big
+            &rdquo; 
+      .build
+        .items
+          .armlet.item
+        .comments
+          %span.big
+            &ldquo;
+          It's just... gimmicky. Falls off quickly the more the game progresses.
+          %span.big
+            &rdquo; 
+      .build
+        .items
+          .dagon.item
+          .eblade.item
+          .blinkdagger.item
+        .comments
+          %span.big
+            &ldquo;
+          The Blinkin N' Slammin build. Buy Dagon, E-Blade and Blink Dagger. Blink next to an enemy, E-Blade+Dagon him and use Sunder. PROFIT! (just don't. Please.)
+          %span.big
+            &rdquo; 
+    %video{:loop => "true", :autoplay => "true"}
+      %source{:src => "blink_slam.mp4", :type => "video/mp4"}
+
     #conclusion
       %h2
-        I'M OUT OF WISDOM. GO WRECK HOUSE. GOOD LUCK.
+        I'M OUT OF WISDOM. GO WRECK HOUSE. 
+      %h2
+        GOOD LUCK.
+      .sig
+        %a{:href => "http://reddit.com/user/pwnies"}
+          pwnies
 
 :javascript
   function display(s, option1, option2, option3){
